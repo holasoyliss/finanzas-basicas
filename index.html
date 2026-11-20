@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Finanzas Básicas Emprendedoras</title>
+<meta name="theme-color" content="#5A3795">
+<meta name="description" content="Finanzas básicas para emprendedoras - CDI Chile">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Finanzas Básicas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rojo:#EE3124; --naranja:#F58220; --amarillo:#FDB940; --verde:#4AB969; --azul:#16BECF; --purpura:#5A3795;
+  --verde-t:#2b8a4a; --gris:#999; --gris-t:#666; --fondo:#F6F4FA; --borde:#E8E4F0;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{font-size:16px}
+html.grande{font-size:19px}
+html,body{margin:0;padding:0;background:var(--fondo);color:#000;font-family:'Nunito','Arial Rounded MT Bold',system-ui,Arial,sans-serif}
+body{min-height:100vh;padding-bottom:calc(5rem + env(safe-area-inset-bottom))}
+button{font-family:inherit}
+header{position:sticky;top:0;z-index:5;background:#fff;padding:calc(.6rem + env(safe-area-inset-top)) 1rem .6rem;display:flex;align-items:center;gap:.7rem;box-shadow:0 1px 0 var(--borde)}
+header img{height:2.3rem;width:auto;flex:none}
+header .t{flex:1;line-height:1.1;font-weight:900;font-size:.95rem;color:#222;min-width:0}
+header .t em{font-style:normal;color:var(--rojo);display:block}
+header .u{font-size:.8rem;color:var(--gris-t);max-width:28%;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.franja{height:4px;background:linear-gradient(90deg,var(--rojo) 0 16.6%,var(--naranja) 0 33.3%,var(--amarillo) 0 50%,var(--verde) 0 66.6%,var(--azul) 0 83.3%,var(--purpura) 0)}
+main{max-width:560px;margin:0 auto;padding:1rem}
+.vista{display:none}.vista.activa{display:block}
+h1{font-size:1.7rem;font-weight:900;margin:.2rem 0 .2rem;display:flex;align-items:center;gap:.6rem}
+h1::before{content:"";width:.35rem;height:1.6rem;border-radius:4px;background:var(--rojo);display:block}
+p.sub{margin:0 0 1rem;color:var(--gris-t);font-size:1rem}
+.card{background:#fff;border-radius:1.3rem;padding:1.1rem;margin-bottom:.9rem;box-shadow:0 1px 6px rgba(90,55,149,.08)}
+.card h3{margin:0 0 .5rem;font-size:1.05rem;font-weight:900;color:#222}
+.card p{margin:.4rem 0;font-size:.95rem;line-height:1.5;color:#333}
+.card small,.nota{display:block;color:var(--gris-t);font-size:.82rem;line-height:1.4;margin:.3rem 0}
+.hero{background:var(--purpura);color:#fff;border-radius:1.6rem;padding:1.4rem;margin-bottom:.9rem;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-1.5rem;top:-1.5rem;width:6rem;height:6rem;border-radius:50%;background:var(--rojo);opacity:.55}
+.hero::before{content:"";position:absolute;right:2.6rem;bottom:-1rem;width:2.4rem;height:2.4rem;border-radius:50%;background:var(--amarillo);opacity:.85}
+.hero small{color:#fff;opacity:.9;font-size:.95rem;margin:0}
+.hero b{display:block;font-size:1.45rem;line-height:1.25;margin-top:.4rem;font-weight:900;position:relative;z-index:1;max-width:90%}
+.tres{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:.9rem}
+.tres .c{background:#fff;border-radius:1.1rem;padding:.8rem .4rem;text-align:center;box-shadow:0 1px 6px rgba(90,55,149,.08)}
+.tres .c span{display:block;font-size:.85rem;color:var(--gris-t)}
+.tres .c b{font-size:1.2rem;font-weight:900}
+.v{color:var(--verde-t)}.r{color:var(--rojo)}
+.progreso{height:.75rem;background:var(--fondo);border-radius:99px;overflow:hidden;margin:.6rem 0 .3rem}
+.progreso i{display:block;height:100%;background:var(--verde);border-radius:99px;width:0}
+.btn{border:none;border-radius:1.2rem;padding:1rem 1.1rem;font-weight:900;font-size:1rem;cursor:pointer;color:#fff;background:var(--rojo);width:100%;display:block;margin-bottom:.6rem}
+.btn.gde{padding:1.15rem;font-size:1.2rem;box-shadow:0 6px 14px rgba(238,49,36,.3)}
+.btn.mor{background:var(--purpura)}
+.btn.sec{background:var(--fondo);color:var(--purpura);border:1.5px solid var(--borde)}
+.btn.peli{background:#fff;color:var(--rojo);border:2px solid var(--rojo)}
+.btn.chico{width:auto;display:inline-block;padding:.5rem .9rem;font-size:.85rem;border-radius:.8rem;margin:0}
+label{display:block;font-weight:700;font-size:.95rem;margin:.9rem 0 .35rem;color:#222}
+input[type=text],input[type=number],input[type=date],input[type=month],select,.inp{width:100%;font:inherit;font-size:1.05rem;padding:.8rem .9rem;border:1.5px solid var(--borde);border-radius:.9rem;background:var(--fondo);color:#000}
+input:focus,select:focus{outline:3px solid rgba(90,55,149,.22);border-color:var(--purpura)}
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.pills{display:flex;gap:.5rem;margin-bottom:.9rem}
+.pills button{flex:1;border:none;background:#fff;border-radius:.9rem;padding:.75rem .2rem;font-weight:700;font-size:.9rem;color:var(--gris-t);cursor:pointer;box-shadow:0 1px 6px rgba(90,55,149,.08)}
+.pills button.on{background:var(--purpura);color:#fff}
+.seg{display:flex;background:var(--fondo);border-radius:.9rem;padding:.25rem;gap:.2rem;margin:.3rem 0}
+.seg button{flex:1;border:none;background:none;border-radius:.7rem;padding:.65rem .2rem;font-weight:700;font-size:.85rem;color:var(--gris-t);cursor:pointer}
+.seg button.on{background:#fff;color:var(--purpura);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.sw{display:flex;align-items:center;gap:.8rem;margin:.6rem 0;cursor:pointer}
+.sw input{display:none}
+.sw .pista{width:3.1rem;height:1.75rem;border-radius:99px;background:#ccc;position:relative;flex:none;transition:.2s}
+.sw .pista::after{content:"";position:absolute;left:.2rem;top:.2rem;width:1.35rem;height:1.35rem;border-radius:50%;background:#fff;transition:.2s}
+.sw input:checked+.pista{background:var(--verde)}
+.sw input:checked+.pista::after{left:1.5rem}
+.sw span.tx{font-size:.95rem;line-height:1.3}
+.precio{background:var(--rojo);color:#fff;border-radius:1.4rem;padding:1.2rem;text-align:center;margin:1rem 0 .4rem}
+.precio small{color:#fff;font-weight:700;font-size:1rem;margin:0}
+.precio .fila{display:flex;align-items:center;justify-content:center;gap:.4rem;margin-top:.4rem}
+.precio .fila span{font-size:2.2rem;font-weight:900}
+.precio input{background:transparent;border:none;border-bottom:2px dashed rgba(255,255,255,.7);color:#fff;font-size:2.6rem;font-weight:900;text-align:center;width:70%;border-radius:0;padding:.1rem}
+.precio input:focus{outline:none;border-color:#fff}
+.desg{background:var(--fondo);border-radius:1rem;padding:.8rem 1rem;margin-top:.6rem}
+.desg div{display:flex;justify-content:space-between;padding:.3rem 0;font-size:.95rem}
+.desg div b{font-weight:900}
+.aviso{background:#E8F9FB;color:#0d6b75;border-radius:.9rem;padding:.7rem .9rem;font-size:.88rem;line-height:1.4;margin:.6rem 0}
+.alerta{background:#FFF1EF;color:#a4190f}
+.num{display:inline-grid;place-items:center;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--purpura);color:#fff;font-size:.8rem;font-weight:900;margin-right:.4rem}
+.paso{font-weight:900;color:var(--purpura);margin:1rem 0 .2rem;font-size:1rem}
+.mov{display:flex;align-items:center;gap:.7rem;padding:.7rem 0;border-bottom:1px solid var(--borde)}
+.mov:last-child{border-bottom:none}
+.mov .pt{width:.7rem;height:.7rem;border-radius:50%;flex:none}
+.mov .d{flex:1;min-width:0}
+.mov .d b{display:block;font-size:.98rem}
+.mov .d span{display:block;font-size:.8rem;color:var(--gris-t);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mov .m{font-weight:900;white-space:nowrap}
+.mov .x{background:none;border:none;color:var(--gris);font-size:1.4rem;cursor:pointer;padding:.2rem .4rem}
+.cobrar{background:#FFF4E0;color:#8a5200;font-size:.75rem;font-weight:700;padding:.15rem .5rem;border-radius:99px;margin-left:.3rem}
+.vacio{text-align:center;padding:2.5rem 1rem;color:var(--gris-t)}
+.vacio .e{font-size:3.4rem}
+.vacio b{display:block;color:#222;font-size:1.2rem;margin:.4rem 0}
+.barra{margin:.7rem 0}
+.barra .l{display:flex;justify-content:space-between;font-size:.92rem;margin-bottom:.25rem;gap:.5rem}
+.barra .pista{height:.7rem;background:var(--fondo);border-radius:99px;overflow:hidden}
+.barra .rel{height:100%;border-radius:99px}
+.mes{display:flex;align-items:center;justify-content:space-between;background:#fff;border-radius:1.2rem;padding:.4rem .5rem;margin-bottom:.9rem;box-shadow:0 1px 6px rgba(90,55,149,.08)}
+.mes b{font-size:1.15rem;font-weight:900;text-transform:capitalize}
+.mes button{background:none;border:none;font-size:1.6rem;color:var(--purpura);padding:.4rem .9rem;cursor:pointer}
+.mes button:disabled{color:#ccc}
+.tip{border-left:5px solid var(--c,var(--rojo));padding-left:.95rem;margin-bottom:.9rem}
+.tip ul{margin:.3rem 0;padding-left:1.2rem;font-size:.95rem;line-height:1.5}
+.fijo{display:flex;align-items:center;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid var(--borde);font-size:.95rem}
+.fijo .x{background:none;border:none;color:var(--gris);font-size:1.3rem;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.5rem 0}
+.chip{background:var(--fondo);border-radius:99px;padding:.3rem .5rem .3rem .8rem;font-size:.85rem;display:flex;align-items:center;gap:.3rem}
+.chip button{background:none;border:none;color:var(--gris);font-size:1.1rem;cursor:pointer;padding:0 .3rem}
+nav{position:fixed;left:0;right:0;bottom:0;z-index:10;background:#fff;display:flex;padding:.4rem .3rem calc(.4rem + env(safe-area-inset-bottom));box-shadow:0 -2px 10px rgba(90,55,149,.1)}
+nav button{flex:1;background:none;border:none;font-size:.72rem;font-weight:700;color:var(--gris-t);padding:.3rem 0;display:flex;flex-direction:column;align-items:center;gap:.1rem;cursor:pointer}
+nav button .i{font-size:1.5rem;line-height:1;filter:grayscale(1);opacity:.75}
+nav button.activa{color:var(--rojo)}
+nav button.activa .i{filter:none;opacity:1}
+.modal{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.5);display:none;align-items:flex-end;justify-content:center}
+.modal.abierto{display:flex}
+.hoja{background:#fff;width:100%;max-width:560px;border-radius:1.8rem 1.8rem 0 0;padding:.8rem 1.2rem calc(1.2rem + env(safe-area-inset-bottom));max-height:92vh;overflow:auto}
+.hoja .asa{width:2.6rem;height:.3rem;border-radius:9px;background:#ddd;margin:0 auto .9rem}
+.hoja h3{margin:0 0 .3rem;font-size:1.3rem;font-weight:900}
+.guia{text-align:center}
+.guia .em{font-size:3.6rem;margin:.4rem 0 0}
+.guia h3{font-size:1.5rem;margin:.3rem 0 .4rem}
+.guia p{color:var(--gris-t);font-size:1.05rem;line-height:1.5;margin:0 .3rem 1rem}
+.puntos{display:flex;justify-content:center;gap:.4rem;margin:.4rem 0 1rem}
+.puntos i{width:.55rem;height:.55rem;border-radius:99px;background:#ddd}
+.puntos i.on{width:1.6rem;background:var(--rojo)}
+.saltar{background:none;border:none;color:var(--gris-t);font-weight:700;font-size:1rem;padding:.6rem;width:100%;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:6rem;transform:translateX(-50%);background:#222;color:#fff;padding:.65rem 1.2rem;border-radius:99px;font-size:.9rem;z-index:30;opacity:0;transition:opacity .25s;pointer-events:none;text-align:center}
+.toast.ver{opacity:1}
+.pie{text-align:center;color:var(--gris);font-size:.8rem;margin:1.2rem 0 .4rem;line-height:1.5}
+.pie b{color:var(--purpura)}
+.pie a{color:var(--purpura)}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="icons/logo-cdi.png" alt="CDI Chile">
+  <div class="t">Finanzas Básicas <em>Emprendedoras</em></div>
+  <div class="u" id="hUser"></div>
+</header>
+<div class="franja"></div>
+
+<main>
+<!-- ============ INICIO ============ -->
+<section id="v-inicio" class="vista activa">
+  <div class="card" id="banner" style="display:none;border:2px solid var(--purpura);position:relative">
+    <button id="bannerX" aria-label="Cerrar" style="position:absolute;top:.3rem;right:.5rem;background:none;border:none;font-size:1.5rem;color:var(--gris);cursor:pointer">×</button>
+    <h3 style="color:var(--purpura)">📲 Instala la app en tu teléfono</h3>
+    <p id="bannerTxt" style="margin-bottom:.7rem">Así la abres con un solo toque, como cualquier otra app.</p>
+    <button class="btn mor" id="bannerBtn" style="display:none;margin:0">Instalar ahora</button>
+  </div>
+  <div class="hero"><small id="hMes"></small><b id="hMsg"></b></div>
+  <div class="tres">
+    <div class="c"><span>Entró</span><b class="v" id="iEnt">$0</b></div>
+    <div class="c"><span>Salió</span><b class="r" id="iSal">$0</b></div>
+    <div class="c"><span>Te queda</span><b id="iQue">$0</b></div>
+  </div>
+  <div class="card" id="iPend" style="display:none"></div>
+  <div class="card" id="iMeta" style="display:none"></div>
+  <button class="btn gde" data-nuevo="1">＋ Anotar movimiento</button>
+  <div id="iLista"></div>
+  <p class="nota" style="text-align:center">🔒 Tus datos se guardan solo en este teléfono. Nadie más los ve.</p>
+</section>
+
+<!-- ============ REPORTES ============ -->
+<section id="v-reportes" class="vista">
+  <h1>Reportes</h1>
+  <p class="sub">Tus números claros, mes a mes.</p>
+  <div class="mes"><button id="mesAnt" aria-label="Mes anterior">‹</button><b id="mesTxt"></b><button id="mesSig" aria-label="Mes siguiente">›</button></div>
+  <div id="repCont"></div>
+</section>
+
+<!-- ============ CALCULAR ============ -->
+<section id="v-calcular" class="vista">
+  <h1>Calcular</h1>
+  <p class="sub">Ponle precio a lo que vendes y conoce tu punto de equilibrio.</p>
+  <div class="pills">
+    <button data-sub="precio" class="on">🧮 Precio</button>
+    <button data-sub="productos">🏷️ Productos</button>
+    <button data-sub="equilibrio">⚖️ Equilibrio</button>
+  </div>
+
+  <div id="s-precio">
+    <div class="card">
+      <div class="paso"><span class="num">1</span>Lo que te cuesta</div>
+      <label class="sw"><input type="checkbox" id="pLote"><span class="pista"></span><span class="tx">¿Haces varias de una vez? Calcula el costo por unidad</span></label>
+      <div id="pLoteBox" style="display:none">
+        <label for="pLoteCosto">Costo total de los materiales del lote</label>
+        <input type="text" inputmode="numeric" class="miles" id="pLoteCosto" placeholder="Ej: 20.000">
+        <label for="pLoteUni">¿Cuántas unidades salen?</label>
+        <input type="text" inputmode="numeric" class="miles" id="pLoteUni" placeholder="Ej: 25">
+        <small id="pLoteRes"></small>
+      </div>
+      <div id="pUniBox">
+        <label for="pMat">Costo de materiales por unidad</label>
+        <small>Insumos, envase, despacho, comisiones, trabajo de terceros. Si es un servicio, lo que gastas en cada trabajo.</small>
+        <input type="text" inputmode="numeric" class="miles" id="pMat" placeholder="Ej: 1.500">
+      </div>
+      <div class="paso"><span class="num">2</span>Tu trabajo</div>
+      <label for="pHoras">¿Cuántas horas te toma hacer una unidad o dar el servicio?</label>
+      <input type="text" inputmode="decimal" id="pHoras" placeholder="Ej: 1,5">
+      <label for="pValor">¿En cuánto valoras tu hora?</label>
+      <input type="text" inputmode="numeric" class="miles" id="pValor" placeholder="Ej: 3.000">
+      <small>Tu trabajo se suma al precio, pero no entra en el margen: es tu pago.</small>
+      <div class="paso"><span class="num">3</span>Tu ganancia</div>
+      <label style="margin-top:.2rem">¿Cómo quieres definir tu ganancia?</label>
+      <div class="seg" id="pModo">
+        <button data-modo="costo" class="on">% sobre el costo</button>
+        <button data-modo="precio">% sobre el precio</button>
+        <button data-modo="fijo">Monto fijo $</button>
+      </div>
+      <small id="pModoTxt"></small>
+      <label for="pGan" id="pGanLbl">¿Cuánto quieres ganar por cada una? (%)</label>
+      <input type="text" inputmode="numeric" id="pGan" value="40">
+      <label class="sw" id="pIvaWrap" style="display:none"><input type="checkbox" id="pIva"><span class="pista"></span><span class="tx">Agregar IVA 19% al precio</span></label>
+      <div class="precio">
+        <small>Tu precio de venta</small>
+        <div class="fila"><span>$</span><input type="text" inputmode="numeric" class="miles" id="pPrecio" placeholder="0"></div>
+      </div>
+      <small style="text-align:center">Este precio parte con el sugerido. Tócalo para cambiarlo y verás al instante tus márgenes.</small>
+      <div class="desg" id="pDesg"></div>
+      <div id="pAlerta"></div>
+      <button class="btn mor" id="pGuardar" style="margin-top:.9rem">💾 Guardar producto</button>
+    </div>
+  </div>
+
+  <div id="s-productos" style="display:none"></div>
+
+  <div id="s-equilibrio" style="display:none">
+    <div class="card tip" style="--c:var(--rojo)">
+      <h3>⚖️ ¿Cuánto necesito vender para no perder?</h3>
+      <p>El <b>punto de equilibrio</b> es cuántas unidades tienes que vender en el mes para cubrir tus <b>costos fijos</b>. Menos que eso: pierdes. Más que eso: empiezas a ganar.</p>
+      <p>De cada venta se descuenta el <b>costo variable</b> (lo que te cuesta hacer la unidad, sin contar tu trabajo). Lo que queda, el <b>margen de la unidad</b>, se va juntando para pagar tus costos fijos.</p>
+      <div class="aviso">Punto de equilibrio = costos fijos ÷ margen de la unidad.</div>
+    </div>
+    <div class="card">
+      <label for="eFijos" style="margin-top:0">1. Tus costos fijos del mes</label>
+      <input type="text" inputmode="numeric" class="miles" id="eFijos" placeholder="Ej: 150.000">
+      <small>Viene de Ajustes (arriendo, internet…). Puedes cambiarlo aquí para probar.</small>
+      <label for="ePrecio">2. Precio al que vendes tu producto</label>
+      <input type="text" inputmode="numeric" class="miles" id="ePrecio" placeholder="Ej: 4.000">
+      <label for="eCv">3. Costo variable de una unidad (sin contar tu trabajo)</label>
+      <input type="text" inputmode="numeric" class="miles" id="eCv" placeholder="Ej: 1.500">
+      <div class="desg" id="eRes"><div><span>Completa los datos para ver el resultado.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APRENDE ============ -->
+<section id="v-aprende" class="vista">
+  <h1>Aprende</h1>
+  <p class="sub">Ideas simples para ordenar y hacer crecer tu negocio.</p>
+  <div class="card tip" style="--c:var(--rojo)"><h3>💵 ¿A cuánto vender tu producto?</h3><p>El precio no es "lo que cobra la vecina". Parte de lo que a ti te cuesta hacer <b>una</b> unidad (ingredientes, materiales, envase) y suma tu trabajo y la ganancia que quieres.</p><div class="aviso">Precio = lo que te cuesta hacer 1 + tu trabajo + tu ganancia. Usa la pestaña Calcular y te da el número.</div></div>
+  <div class="card tip" style="--c:var(--naranja)"><h3>🏠 Costos fijos y costos variables</h3><p>Tus gastos son de dos tipos:</p><ul><li><b>Costos fijos:</b> los pagas igual todos los meses (arriendo, internet, plan del celular).</li><li><b>Costos variables:</b> cambian según cuánto produces y vendes (insumos, envases, transporte, comisiones).</li></ul><div class="aviso">Los fijos los configuras una vez en Ajustes. Los variables los anotas como "Salió dinero".</div></div>
+  <div class="card tip" style="--c:var(--amarillo)"><h3>⚖️ Punto de equilibrio</h3><p>Es cuántas unidades necesitas vender en el mes para no perder. Por debajo, pierdes; por encima, ganas.</p><div class="aviso">Cálculalo con tus números reales en Calcular → Equilibrio.</div></div>
+  <div class="card tip" style="--c:var(--verde)"><h3>🤝 Cuidado con el fiado</h3><p>Vender "para pagar después" no es plata en la mano. Anótalo como venta y marca <b>"Aún no me pagan"</b>: así no confundes lo que te deben con lo que tienes. Cuando te paguen, márcalo como pagado.</p></div>
+  <div class="card tip" style="--c:var(--azul)"><h3>👛 Separa la plata del negocio de la tuya</h3><p>Uno de los errores más comunes es sacar plata del negocio para gastos de la casa sin anotarlo. Cuando necesites dinero para ti, anótalo como <b>"Retiro (mi sueldo)"</b>. Así sabes cuánto rinde de verdad tu negocio.</p><div class="aviso">Un negocio sano te paga un sueldo y además le sobra para crecer.</div></div>
+  <div class="card tip" style="--c:var(--purpura)"><h3>🧾 Impuestos: lo básico (Chile)</h3><p>Si formalizas tu negocio, aparecen algunos impuestos. En simple:</p><ul><li><b>IVA (19%):</b> si emites boleta o factura, cobras ese 19% que no es tuyo: lo juntas y lo pagas al SII.</li><li><b>PPM:</b> un adelanto mensual del impuesto a la renta.</li><li><b>Renta anual:</b> una vez al año declaras cuánto ganó tu negocio.</li><li><b>Patente municipal:</b> si tienes local, o te la pedirán.</li></ul><div class="aviso">Lo que pagues, anótalo en la categoría "Impuestos". Cada caso es distinto: consulta en sii.cl o con un contador.</div></div>
+  <div class="card tip" style="--c:var(--rojo)"><h3>💧 Cuida tu flujo de caja</h3><p>Tener ventas no es lo mismo que tener plata en la mano. Si vendes fiado y te pagan a fin de mes, puede que hoy no te alcance para comprar insumos. Cobra rápido y no gastes plata que aún no tienes.</p></div>
+  <div class="card tip" style="--c:var(--naranja)"><h3>📅 Anota todos los días</h3><p>La app solo sirve si le cuentas lo que pasa. Toma 5 segundos: vendiste algo, anótalo; compraste insumos, anótalo. Al final del mes verás con claridad cómo se transformó tu esfuerzo en dinero.</p></div>
+  <div class="card tip" style="--c:var(--amarillo)"><h3>💡 Reglas de oro</h3><ul><li>Nunca vendas bajo tu costo "para no perder al cliente".</li><li>Guarda un poquito de cada venta para imprevistos.</li><li>Sube tus precios de a poco, antes de regalar tu trabajo.</li><li>Tu tiempo también vale: inclúyelo en el precio.</li></ul></div>
+  <p class="pie">Una herramienta de <b>CDI Chile</b> · cdichile.org</p>
+</section>
+
+<!-- ============ AJUSTES ============ -->
+<section id="v-ajustes" class="vista">
+  <h1>Ajustes</h1>
+  <p class="sub">Configura tu negocio y cuida tus datos.</p>
+
+  <div class="card">
+    <h3>🏷️ Nombre de tu negocio</h3>
+    <small>Aparece arriba en la app.</small>
+    <input type="text" id="aNombre" maxlength="30" placeholder="Ej: Dulces del Sur">
+    <button class="btn mor" id="aNombreGuardar" style="margin-top:.7rem;margin-bottom:0">Guardar nombre</button>
+  </div>
+
+  <div class="card">
+    <h3>🎯 Meta del mes</h3>
+    <small>Ponte una meta y síguela desde Inicio.</small>
+    <div class="seg" id="aMetaTipo"><button data-t="ganancia" class="on">Ganancia</button><button data-t="ventas">Ventas</button></div>
+    <input type="text" inputmode="numeric" class="miles" id="aMetaMonto" placeholder="Ej: 200.000">
+    <button class="btn mor" id="aMetaGuardar" style="margin:.7rem 0 .5rem">Guardar meta</button>
+    <button class="btn sec" id="aMetaQuitar" style="margin:0">Quitar meta</button>
+  </div>
+
+  <div class="card">
+    <h3>🏠 Costos fijos mensuales</h3>
+    <small>Son los que pagas igual todos los meses (arriendo, internet, plan del celular). Los configuras una vez y la app los descuenta sola cada mes. Los variables (insumos, envases…) no van aquí: esos los anotas en "Salió dinero".</small>
+    <div id="aFijos"></div>
+    <div class="dos" style="margin-top:.7rem">
+      <input type="text" id="aFijoNom" placeholder="Ej: Arriendo" maxlength="30">
+      <input type="text" inputmode="numeric" class="miles" id="aFijoMonto" placeholder="Monto">
+    </div>
+    <button class="btn sec" id="aFijoAdd" style="margin:.6rem 0 0">＋ Agregar costo fijo</button>
+  </div>
+
+  <div class="card">
+    <h3>🗂️ Categorías propias</h3>
+    <small>Agrega tus propias categorías de ingreso o gasto.</small>
+    <div class="seg" id="aCatTipo"><button data-t="out" class="on">Gasto</button><button data-t="in">Ingreso</button></div>
+    <div class="chips" id="aCatLista"></div>
+    <input type="text" id="aCatNom" placeholder="Ej: Ferias" maxlength="25">
+    <button class="btn sec" id="aCatAdd" style="margin:.6rem 0 0">＋ Agregar categoría</button>
+  </div>
+
+  <div class="card">
+    <h3>🧾 Facturación</h3>
+    <label class="sw"><input type="checkbox" id="aIva"><span class="pista"></span><span class="tx">Emito boleta o factura (cobro IVA 19%)</span></label>
+    <small>Si lo activas, el IVA aparece en la calculadora y en Reportes. Si no emites boleta, déjalo apagado y no verás nada de IVA.</small>
+  </div>
+
+  <div class="card">
+    <h3>🔐 Copia de seguridad</h3>
+    <small id="aCopiaTxt"></small>
+    <button class="btn" id="aCopia" style="margin:.6rem 0 .5rem">⬇️ Guardar copia de seguridad</button>
+    <button class="btn sec" id="aCargar" style="margin:0">⬆️ Cargar una copia guardada</button>
+    <input type="file" id="aArchivo" accept=".json,application/json" style="display:none">
+  </div>
+
+  <div class="card">
+    <h3>📊 Exportar a Excel</h3>
+    <small>Descarga todos tus movimientos en una planilla (CSV) para revisarlos en Excel o mandársela a tu contador.</small>
+    <button class="btn sec" id="aCsv" style="margin:.5rem 0 0">⬇️ Exportar movimientos (CSV)</button>
+  </div>
+
+  <div class="card">
+    <h3>🔠 Texto más grande</h3>
+    <label class="sw"><input type="checkbox" id="aGrande"><span class="pista"></span><span class="tx">Aumentar el tamaño del texto de la app</span></label>
+  </div>
+
+  <div class="card">
+    <h3>❓ ¿Cómo funciona?</h3>
+    <small>Vuelve a ver la guía rápida de la app.</small>
+    <button class="btn sec" id="aGuia" style="margin:.5rem 0 0">Ver guía rápida</button>
+  </div>
+
+  <div class="card">
+    <h3>📲 Instalar en tu teléfono</h3>
+    <button class="btn mor" id="btnInstalar" style="display:none">Instalar app</button>
+    <p><b>iPhone (Safari):</b> toca Compartir (cuadrado con flecha) y elige "Agregar a pantalla de inicio".</p>
+    <p><b>Android (Chrome):</b> toca los tres puntitos y elige "Instalar aplicación".</p>
+  </div>
+
+  <div class="card">
+    <h3 class="r">🗑️ Borrar todo</h3>
+    <small>Elimina todos tus datos de este teléfono. No se puede deshacer.</small>
+    <button class="btn peli" id="aBorrar" style="margin:.5rem 0 0">Borrar todos mis datos</button>
+  </div>
+  <p class="pie">Una herramienta de <b>CDI Chile</b><br>Transformando vidas a través de la tecnología<br><a href="https://cdichile.org">cdichile.org</a></p>
+</section>
+</main>
+
+<nav>
+  <button data-vista="inicio" class="activa"><span class="i">🏠</span>Inicio</button>
+  <button data-vista="reportes"><span class="i">📊</span>Reportes</button>
+  <button data-vista="calcular"><span class="i">🧮</span>Calcular</button>
+  <button data-vista="aprende"><span class="i">🎓</span>Aprende</button>
+  <button data-vista="ajustes"><span class="i">⚙️</span>Ajustes</button>
+</nav>
+
+<!-- Modal anotar movimiento -->
+<div class="modal" id="modal">
+  <div class="hoja">
+    <div class="asa"></div>
+    <h3>Anotar movimiento</h3>
+    <div class="seg" id="mTipo"><button data-t="in" class="on">💰 Entró dinero</button><button data-t="out">💸 Salió dinero</button></div>
+    <label for="mMonto">Monto ($)</label>
+    <input type="text" inputmode="numeric" class="miles" id="mMonto" placeholder="Ej: 15.000">
+    <label for="mCat">Categoría</label>
+    <select id="mCat"></select>
+    <label for="mNota">Nota (opcional)</label>
+    <input type="text" id="mNota" maxlength="60" placeholder="Ej: Venta a vecina">
+    <label for="mFecha">Fecha</label>
+    <input type="date" id="mFecha">
+    <label class="sw" id="mPendWrap"><input type="checkbox" id="mPend"><span class="pista"></span><span class="tx">Aún no me pagan (fiado)</span></label>
+    <div class="dos" style="margin-top:1rem">
+      <button class="btn sec" id="mCancel" style="margin:0">Cancelar</button>
+      <button class="btn" id="mGuardar" style="margin:0">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal guardar producto -->
+<div class="modal" id="modalProd">
+  <div class="hoja">
+    <div class="asa"></div>
+    <h3>Guardar producto</h3>
+    <label for="prNombre">¿Cómo se llama?</label>
+    <input type="text" id="prNombre" maxlength="40" placeholder="Ej: Torta de mil hojas">
+    <div class="dos" style="margin-top:1rem">
+      <button class="btn sec" id="prCancel" style="margin:0">Cancelar</button>
+      <button class="btn" id="prGuardar" style="margin:0">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Guía de bienvenida -->
+<div class="modal" id="guia">
+  <div class="hoja guia">
+    <div class="asa"></div>
+    <div class="em" id="gEm"></div>
+    <h3 id="gTit"></h3>
+    <p id="gTxt"></p>
+    <div class="puntos" id="gPuntos"></div>
+    <button class="btn" id="gSig">Siguiente</button>
+    <button class="saltar" id="gSaltar">Saltar</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+'use strict';
+var KEY='cdi_finanzas_basicas_v1';
+var MESES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+var COLORES=['#EE3124','#F58220','#FDB940','#4AB969','#16BECF','#5A3795'];
+var CAT_BASE={in:['Ventas','Servicios','Otros ingresos'],out:['Insumos y materiales','Envases','Transporte','Publicidad','Comisiones','Impuestos','Retiro (mi sueldo)','Otros gastos']};
+var RETIRO='Retiro (mi sueldo)';
+
+function base(){return {nombre:'',movs:[],fijos:[],meta:null,cats:{in:[],out:[]},iva:false,grande:false,productos:[],visto:false,ultimaCopia:''}}
+function cargar(){
+  try{
+    var g=JSON.parse(localStorage.getItem(KEY));
+    if(g&&Array.isArray(g.movs)){var b=base();for(var k in b){if(!(k in g))g[k]=b[k]}
+      if(!g.cats)g.cats={in:[],out:[]};if(!g.cats.in)g.cats.in=[];if(!g.cats.out)g.cats.out=[];return g}
+  }catch(e){}
+  return base();
+}
+var D=cargar();
+function guardar(){try{localStorage.setItem(KEY,JSON.stringify(D))}catch(e){}}
+
+var $=function(id){return document.getElementById(id)};
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function miles(n){return String(Math.round(Math.abs(n))).replace(/\B(?=(\d{3})+(?!\d))/g,'.')}
+function $$(n){n=Math.round(n||0);return (n<0?'-':'')+'$'+miles(n)}
+function num(v){var s=String(v==null?'':v).replace(/\./g,'').replace(',','.').replace(/[^\d.\-]/g,'');var n=parseFloat(s);return isNaN(n)?0:n}
+function pad(n){return String(n).padStart(2,'0')}
+function hoy(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
+function mesActual(){return hoy().slice(0,7)}
+function nombreMes(ym){var p=ym.split('-');return MESES[+p[1]-1]+' '+p[0]}
+function fechaCorta(f){var p=f.split('-');return +p[2]+' '+MESES[+p[1]-1].slice(0,3)}
+function toast(t){var el=$('toast');el.textContent=t;el.classList.add('ver');setTimeout(function(){el.classList.remove('ver')},2200)}
+function nid(){return Date.now()+Math.floor(Math.random()*1000)}
+function catsDe(t){return CAT_BASE[t].concat(D.cats[t])}
+function totalFijos(){return D.fijos.reduce(function(s,f){return s+f.monto},0)}
+
+/* ---- Formato de miles al escribir ---- */
+document.addEventListener('input',function(e){
+  var el=e.target;
+  if(el.classList&&el.classList.contains('miles')){
+    var d=el.value.replace(/\D/g,'');el.value=d?miles(+d):'';
+  }
+});
+
+/* ---- Navegación ---- */
+function ir(v){
+  document.querySelectorAll('.vista').forEach(function(s){s.classList.toggle('activa',s.id==='v-'+v)});
+  document.querySelectorAll('nav button').forEach(function(b){b.classList.toggle('activa',b.dataset.vista===v)});
+  window.scrollTo(0,0);
+  if(v==='reportes')renderReportes();
+  if(v==='calcular')prepararCalc();
+  if(v==='ajustes')renderAjustes();
+}
+document.querySelectorAll('nav button').forEach(function(b){b.addEventListener('click',function(){ir(b.dataset.vista)})});
+
+/* ---- Totales ---- */
+function totales(ym,conFijos){
+  var ent=0,vars=0,pend=0,retiros=0;
+  D.movs.forEach(function(m){
+    if(m.fecha.slice(0,7)!==ym)return;
+    if(m.tipo==='in'){if(m.pend)pend+=m.monto;else ent+=m.monto}
+    else{vars+=m.monto;if(m.cat===RETIRO)retiros+=m.monto}
+  });
+  var fij=conFijos?totalFijos():0;
+  return {ent:ent,sal:vars+fij,vars:vars,fij:fij,pend:pend,retiros:retiros,que:ent-vars-fij};
+}
+function hayMovs(ym){return D.movs.some(function(m){return m.fecha.slice(0,7)===ym})}
+
+/* ---- Inicio ---- */
+function movHtml(m){
+  var ing=m.tipo==='in';
+  return '<div class="mov"><span class="pt" style="background:'+(ing?'var(--verde)':'var(--rojo)')+'"></span>'+
+    '<div class="d"><b>'+esc(m.cat)+(m.pend?'<span class="cobrar">Por cobrar</span>':'')+'</b><span>'+fechaCorta(m.fecha)+(m.nota?' · '+esc(m.nota):'')+'</span></div>'+
+    '<div class="m '+(ing?'v':'r')+'">'+(ing?'+':'-')+$$(m.monto)+'</div>'+
+    (m.pend?'<button class="btn chico mor" data-pagado="'+m.id+'">Cobrado</button>':'')+
+    '<button class="x" aria-label="Eliminar" data-del="'+m.id+'">×</button></div>';
+}
+function renderInicio(){
+  var ym=mesActual(),t=totales(ym,true);
+  $('hUser').textContent=D.nombre||'';
+  $('hMes').textContent='📅 '+nombreMes(ym);
+  var msg;
+  if(!D.movs.length)msg='¡Bienvenida! Empieza anotando tu primera venta o gasto 👇';
+  else if(t.que>0)msg='¡Vas bien! Este mes te quedan '+$$(t.que)+' 💪';
+  else msg='Este mes los gastos van sobre lo que entró. Revisa tus Reportes 🔎';
+  $('hMsg').textContent=msg;
+  $('iEnt').textContent=$$(t.ent);$('iSal').textContent=$$(t.sal);
+  var q=$('iQue');q.textContent=$$(t.que);q.className=t.que<0?'r':'v';
+  var P=$('iPend');
+  if(t.pend>0){P.style.display='block';P.innerHTML='<b>🤝 Por cobrar: '+$$(t.pend)+'</b><small>Ventas fiadas que aún no te pagan. No suman en "Entró" hasta que las marques como cobradas.</small>'}
+  else P.style.display='none';
+  var M=$('iMeta');
+  if(D.meta&&D.meta.monto>0){
+    var logro=D.meta.tipo==='ventas'?t.ent:t.que, pct=Math.max(0,Math.min(100,Math.round(logro/D.meta.monto*100)));
+    M.style.display='block';
+    M.innerHTML='<div style="display:flex;justify-content:space-between;gap:.5rem"><span>🎯 Meta de '+(D.meta.tipo==='ventas'?'ventas':'ganancia')+': <b>'+$$(D.meta.monto)+'</b></span><b>'+pct+'%</b></div>'+
+      '<div class="progreso"><i style="width:'+pct+'%"></i></div>'+
+      '<small>'+(logro>=D.meta.monto?'¡Meta cumplida! 🎉':'Te faltan '+$$(D.meta.monto-Math.max(0,logro)))+'</small>';
+  }else M.style.display='none';
+  var l=D.movs.slice().sort(function(a,b){return a.fecha<b.fecha?1:a.fecha>b.fecha?-1:b.id-a.id}).slice(0,8);
+  $('iLista').innerHTML=l.length?'<div class="card"><h3>Últimos movimientos</h3>'+l.map(movHtml).join('')+'</div>':'';
+}
+document.addEventListener('click',function(e){
+  var t=e.target;
+  if(t.getAttribute&&t.getAttribute('data-del')){
+    var id=t.getAttribute('data-del');
+    if(confirm('¿Eliminar este movimiento?')){D.movs=D.movs.filter(function(m){return String(m.id)!==id});guardar();renderInicio();renderReportes()}
+  }
+  if(t.getAttribute&&t.getAttribute('data-pagado')){
+    var id2=t.getAttribute('data-pagado');
+    D.movs.forEach(function(m){if(String(m.id)===id2)m.pend=false});guardar();renderInicio();renderReportes();toast('Marcado como cobrado ✓');
+  }
+  if(t.getAttribute&&t.getAttribute('data-nuevo'))abrirMov();
+});
+
+/* ---- Modal movimiento ---- */
+var mTipo='in';
+function llenarCats(){
+  $('mCat').innerHTML=catsDe(mTipo).map(function(c){return '<option>'+esc(c)+'</option>'}).join('');
+  $('mPendWrap').style.display=mTipo==='in'?'flex':'none';
+}
+function abrirMov(){
+  mTipo='in';
+  document.querySelectorAll('#mTipo button').forEach(function(b){b.classList.toggle('on',b.dataset.t==='in')});
+  llenarCats();$('mMonto').value='';$('mNota').value='';$('mFecha').value=hoy();$('mPend').checked=false;
+  $('modal').classList.add('abierto');
+  setTimeout(function(){$('mMonto').focus()},200);
+}
+document.querySelectorAll('#mTipo button').forEach(function(b){b.addEventListener('click',function(){
+  mTipo=b.dataset.t;document.querySelectorAll('#mTipo button').forEach(function(x){x.classList.toggle('on',x===b)});llenarCats();
+})});
+$('mCancel').addEventListener('click',function(){$('modal').classList.remove('abierto')});
+$('modal').addEventListener('click',function(e){if(e.target===$('modal'))$('modal').classList.remove('abierto')});
+$('mGuardar').addEventListener('click',function(){
+  var monto=num($('mMonto').value);
+  if(monto<=0){toast('Escribe un monto mayor a 0');return}
+  D.movs.push({id:nid(),tipo:mTipo,monto:monto,cat:$('mCat').value,nota:$('mNota').value.trim(),fecha:$('mFecha').value||hoy(),pend:mTipo==='in'&&$('mPend').checked});
+  guardar();$('modal').classList.remove('abierto');renderInicio();toast('Guardado ✓');
+});
+
+/* ---- Reportes ---- */
+var repYM=mesActual();
+function barras(mapa){
+  var ks=Object.keys(mapa).sort(function(a,b){return mapa[b]-mapa[a]});
+  if(!ks.length)return '<small>Sin datos este mes.</small>';
+  var tot=ks.reduce(function(s,k){return s+mapa[k]},0),max=mapa[ks[0]];
+  return ks.map(function(k,i){
+    return '<div class="barra"><div class="l"><b>'+esc(k)+'</b><span>'+$$(mapa[k])+' · '+Math.round(mapa[k]/tot*100)+'%</span></div><div class="pista"><div class="rel" style="width:'+Math.max(4,mapa[k]/max*100)+'%;background:'+COLORES[i%6]+'"></div></div></div>';
+  }).join('');
+}
+function renderReportes(){
+  $('mesTxt').textContent=nombreMes(repYM);
+  $('mesSig').disabled=repYM>=mesActual();
+  var c=$('repCont');
+  if(!hayMovs(repYM)){
+    c.innerHTML='<div class="vacio"><div class="e">📊</div><b>Aún no hay datos de este mes</b>Cuando registres movimientos en '+nombreMes(repYM)+', aquí verás tus gráficos y totales.</div>';return;
+  }
+  var t=totales(repYM,true),ci={},co={};
+  D.movs.forEach(function(m){
+    if(m.fecha.slice(0,7)!==repYM)return;
+    if(m.tipo==='in'){if(!m.pend)ci[m.cat]=(ci[m.cat]||0)+m.monto}
+    else co[m.cat]=(co[m.cat]||0)+m.monto;
+  });
+  D.fijos.forEach(function(f){co['Fijo: '+f.nombre]=(co['Fijo: '+f.nombre]||0)+f.monto});
+  var gan=t.ent-(t.sal-t.retiros);
+  var h='<div class="tres"><div class="c"><span>Entró</span><b class="v">'+$$(t.ent)+'</b></div><div class="c"><span>Salió</span><b class="r">'+$$(t.sal)+'</b></div><div class="c"><span>Te queda</span><b class="'+(t.que<0?'r':'v')+'">'+$$(t.que)+'</b></div></div>';
+  h+='<div class="card"><h3>📈 Tu ganancia del negocio</h3><p style="font-size:1.6rem;font-weight:900;margin:.2rem 0" class="'+(gan<0?'r':'v')+'">'+$$(gan)+'</p><small>Es lo que entró menos los gastos del negocio, sin contar lo que te pagaste como sueldo.</small>';
+  if(t.ent>0)h+='<div class="aviso">De cada $100 que vendiste, al negocio le quedaron $'+Math.round(gan/t.ent*100)+' después de gastos.</div>';
+  if(t.retiros>0)h+='<small>💼 Te pagaste (retiros) '+$$(t.retiros)+' este mes.</small>';
+  h+='</div>';
+  if(t.pend>0)h+='<div class="card"><b>🤝 Por cobrar: '+$$(t.pend)+'</b><small>Ventas fiadas aún sin cobrar.</small></div>';
+  if(D.iva&&t.ent>0)h+='<div class="card"><h3>🧾 IVA</h3><p>IVA incluido en tus ventas (aprox.): <b>'+$$(t.ent*19/119)+'</b></p><small>Es una estimación que supone que tus ventas ya incluyen el 19%. Confirma tu declaración en sii.cl o con un contador.</small></div>';
+  h+='<div class="card"><h3>💸 ¿En qué gastaste?</h3>'+barras(co)+'</div>';
+  h+='<div class="card"><h3>💰 ¿De dónde viene tu plata?</h3>'+barras(ci)+'</div>';
+  c.innerHTML=h;
+}
+function cambiarMes(d){
+  var p=repYM.split('-'),y=+p[0],m=+p[1]+d;
+  if(m<1){m=12;y--}if(m>12){m=1;y++}
+  var n=y+'-'+pad(m);if(n>mesActual())return;repYM=n;renderReportes();
+}
+$('mesAnt').addEventListener('click',function(){cambiarMes(-1)});
+$('mesSig').addEventListener('click',function(){cambiarMes(1)});
+
+/* ---- Calcular ---- */
+document.querySelectorAll('.pills button').forEach(function(b){b.addEventListener('click',function(){
+  document.querySelectorAll('.pills button').forEach(function(x){x.classList.toggle('on',x===b)});
+  ['precio','productos','equilibrio'].forEach(function(s){$('s-'+s).style.display=s===b.dataset.sub?'block':'none'});
+  if(b.dataset.sub==='productos')renderProductos();
+  if(b.dataset.sub==='equilibrio'){if(!$('eFijos').value&&totalFijos()>0)$('eFijos').value=miles(totalFijos());calcEq()}
+})});
+var modo='costo',precioEditado=false,ultimo=null;
+function prepararCalc(){
+  $('pIvaWrap').style.display=D.iva?'flex':'none';
+  if(!D.iva)$('pIva').checked=false;
+  calcPrecio();
+}
+function actModo(){
+  var tx={costo:'Ganas ese % sobre lo que te costó. Ej: costo $1.000 + 40% → vendes a $1.400.',precio:'Ese % del precio final es tu ganancia. Ej: costo $600, 40% → vendes a $1.000.',fijo:'Ganas un monto fijo por unidad. Ej: costo $1.000 + $500 → vendes a $1.500.'};
+  $('pModoTxt').textContent=tx[modo];
+  $('pGanLbl').textContent=modo==='fijo'?'¿Cuánto quieres ganar por cada una? ($)':'¿Cuánto quieres ganar por cada una? (%)';
+}
+document.querySelectorAll('#pModo button').forEach(function(b){b.addEventListener('click',function(){
+  modo=b.dataset.modo;document.querySelectorAll('#pModo button').forEach(function(x){x.classList.toggle('on',x===b)});
+  $('pGan').classList.toggle('miles',modo==='fijo');actModo();precioEditado=false;calcPrecio();
+})});
+$('pLote').addEventListener('change',function(){$('pLoteBox').style.display=this.checked?'block':'none';$('pUniBox').style.display=this.checked?'none':'block';precioEditado=false;calcPrecio()});
+function matUnit(){
+  if($('pLote').checked){var u=num($('pLoteUni').value),c=num($('pLoteCosto').value);return u>0?c/u:0}
+  return num($('pMat').value);
+}
+function calcPrecio(){
+  var mat=matUnit(),trab=num($('pHoras').value)*num($('pValor').value),g=num($('pGan').value),iva=$('pIva').checked;
+  if($('pLote').checked){var u=num($('pLoteUni').value);$('pLoteRes').textContent=u>0&&num($('pLoteCosto').value)>0?'Cada unidad te cuesta '+$$(mat)+' en materiales.':''}
+  var precio;
+  if(precioEditado)precio=num($('pPrecio').value);
+  else{
+    var neto=modo==='costo'?mat*(1+g/100):modo==='precio'?(g<100?mat/(1-g/100):mat):mat+g;
+    precio=neto+trab;if(iva)precio*=1.19;
+    precio=precio>0?Math.ceil(precio/10)*10:0;
+    $('pPrecio').value=precio?miles(precio):'';
+  }
+  var sinIva=iva?precio/1.19:precio,ivaM=precio-sinIva,gan=sinIva-mat-trab,mar=sinIva>0?gan/sinIva*100:0;
+  ultimo={precio:precio,mat:mat,trab:trab,gan:gan};
+  if(!(mat>0||trab>0||precio>0)){$('pDesg').innerHTML='<div><span>Completa los datos para ver tu precio.</span></div>';$('pAlerta').innerHTML='';return}
+  $('pDesg').innerHTML='<div><span>Materiales por unidad</span><b>'+$$(mat)+'</b></div><div><span>Tu trabajo</span><b>'+$$(trab)+'</b></div>'+(iva?'<div><span>IVA (19%)</span><b>'+$$(ivaM)+'</b></div>':'')+'<div><span>Ganancia por unidad</span><b class="'+(gan<0?'r':'v')+'">'+$$(gan)+'</b></div><div><span>Margen sobre el precio</span><b>'+Math.round(mar)+'%</b></div>';
+  $('pAlerta').innerHTML=(precio>0&&gan<0)?'<div class="aviso alerta">⚠️ Con este precio pierdes plata en cada unidad. Súbelo o baja tus costos.</div>':'';
+}
+['pLoteCosto','pLoteUni','pMat','pHoras','pValor','pGan'].forEach(function(i){$(i).addEventListener('input',function(){precioEditado=false;calcPrecio()})});
+$('pIva').addEventListener('change',function(){precioEditado=false;calcPrecio()});
+$('pPrecio').addEventListener('input',function(){precioEditado=true;calcPrecio()});
+$('pGuardar').addEventListener('click',function(){
+  if(!ultimo||ultimo.precio<=0){toast('Primero calcula un precio');return}
+  $('prNombre').value='';$('modalProd').classList.add('abierto');setTimeout(function(){$('prNombre').focus()},200);
+});
+$('prCancel').addEventListener('click',function(){$('modalProd').classList.remove('abierto')});
+$('prGuardar').addEventListener('click',function(){
+  var n=$('prNombre').value.trim();if(!n){toast('Ponle un nombre');return}
+  D.productos.push({id:nid(),nombre:n,precio:ultimo.precio,gan:ultimo.gan,mat:ultimo.mat,trab:ultimo.trab});
+  guardar();$('modalProd').classList.remove('abierto');toast('Producto guardado ✓');
+});
+function renderProductos(){
+  var c=$('s-productos');
+  if(!D.productos.length){c.innerHTML='<div class="vacio"><div class="e">🏷️</div><b>Aún no guardas productos</b>Calcula el precio de un producto en la pestaña "Precio" y toca "Guardar producto". Aquí quedarán guardados.</div>';return}
+  c.innerHTML=D.productos.map(function(p){
+    return '<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;gap:.5rem"><h3 style="margin:0">'+esc(p.nombre)+'</h3><button class="btn chico peli" data-delprod="'+p.id+'">Borrar</button></div>'+
+      '<div class="desg"><div><span>Precio de venta</span><b>'+$$(p.precio)+'</b></div><div><span>Materiales</span><b>'+$$(p.mat)+'</b></div><div><span>Tu trabajo</span><b>'+$$(p.trab)+'</b></div><div><span>Ganancia por unidad</span><b class="'+(p.gan<0?'r':'v')+'">'+$$(p.gan)+'</b></div></div></div>';
+  }).join('');
+}
+$('s-productos').addEventListener('click',function(e){
+  var id=e.target.getAttribute&&e.target.getAttribute('data-delprod');
+  if(id&&confirm('¿Borrar este producto?')){D.productos=D.productos.filter(function(p){return String(p.id)!==id});guardar();renderProductos()}
+});
+function calcEq(){
+  var f=num($('eFijos').value),p=num($('ePrecio').value),cv=num($('eCv').value),r=$('eRes');
+  if(f<=0||p<=0){r.innerHTML='<div><span>Completa los datos para ver el resultado.</span></div>';return}
+  var m=p-cv;
+  if(m<=0){r.innerHTML='<div class="r"><b>Ojo:</b> el precio es menor o igual al costo. Vendiendo así nunca cubres tus costos fijos.</div>';return}
+  var u=Math.ceil(f/m);
+  r.innerHTML='<div><span>Margen por unidad</span><b>'+$$(m)+'</b></div><div><span>Debes vender al mes</span><b style="font-size:1.3rem;color:var(--purpura)">'+u+' unidades</b></div><div><span>Eso son en ventas</span><b>'+$$(u*p)+'</b></div><div><span style="font-size:.85rem;color:var(--gris-t)">Desde la unidad '+(u+1)+' empiezas a ganar.</span></div>';
+}
+['eFijos','ePrecio','eCv'].forEach(function(i){$(i).addEventListener('input',calcEq)});
+
+/* ---- Ajustes ---- */
+var aMeta='ganancia',aCat='out';
+function renderAjustes(){
+  $('aNombre').value=D.nombre||'';
+  if(D.meta){aMeta=D.meta.tipo;$('aMetaMonto').value=miles(D.meta.monto)}
+  document.querySelectorAll('#aMetaTipo button').forEach(function(b){b.classList.toggle('on',b.dataset.t===aMeta)});
+  var f=D.fijos;
+  $('aFijos').innerHTML=f.length?f.map(function(x){return '<div class="fijo"><span>'+esc(x.nombre)+'</span><span><b>'+$$(x.monto)+'</b> <button class="x" data-delfijo="'+x.id+'" aria-label="Quitar">×</button></span></div>'}).join('')+'<div class="fijo"><span>Total mensual</span><b class="r">'+$$(totalFijos())+'</b></div>':'<small>Aún no agregas costos fijos.</small>';
+  document.querySelectorAll('#aCatTipo button').forEach(function(b){b.classList.toggle('on',b.dataset.t===aCat)});
+  var cs=D.cats[aCat];
+  $('aCatLista').innerHTML=cs.length?cs.map(function(c,i){return '<span class="chip">'+esc(c)+'<button data-delcat="'+i+'" aria-label="Quitar">×</button></span>'}).join(''):'<small>Aún no agregas categorías propias.</small>';
+  $('aIva').checked=!!D.iva;$('aGrande').checked=!!D.grande;
+  $('aCopiaTxt').textContent=D.ultimaCopia?'Última copia: '+D.ultimaCopia+'. Guárdala o mándatela por WhatsApp. Si cambias de teléfono, la vuelves a cargar aquí.':'Aún no has hecho ninguna copia. Descarga un archivo con toda tu información. Guárdalo o mándatelo por WhatsApp. Si cambias de teléfono, lo vuelves a cargar aquí.';
+}
+$('aNombreGuardar').addEventListener('click',function(){D.nombre=$('aNombre').value.trim();guardar();renderInicio();toast('Nombre guardado ✓')});
+document.querySelectorAll('#aMetaTipo button').forEach(function(b){b.addEventListener('click',function(){aMeta=b.dataset.t;document.querySelectorAll('#aMetaTipo button').forEach(function(x){x.classList.toggle('on',x===b)})})});
+$('aMetaGuardar').addEventListener('click',function(){var m=num($('aMetaMonto').value);if(m<=0){toast('Escribe un monto para la meta');return}D.meta={tipo:aMeta,monto:m};guardar();renderInicio();toast('Meta guardada ✓')});
+$('aMetaQuitar').addEventListener('click',function(){D.meta=null;$('aMetaMonto').value='';guardar();renderInicio();toast('Meta quitada')});
+$('aFijoAdd').addEventListener('click',function(){
+  var n=$('aFijoNom').value.trim(),m=num($('aFijoMonto').value);
+  if(!n||m<=0){toast('Escribe el nombre y el monto');return}
+  D.fijos.push({id:nid(),nombre:n,monto:m});$('aFijoNom').value='';$('aFijoMonto').value='';guardar();renderAjustes();renderInicio();toast('Costo fijo agregado ✓');
+});
+$('v-ajustes').addEventListener('click',function(e){
+  var t=e.target,a;
+  if(t.getAttribute&&(a=t.getAttribute('data-delfijo'))){D.fijos=D.fijos.filter(function(f){return String(f.id)!==a});guardar();renderAjustes();renderInicio()}
+  if(t.getAttribute&&(a=t.getAttribute('data-delcat'))){D.cats[aCat].splice(+a,1);guardar();renderAjustes()}
+});
+document.querySelectorAll('#aCatTipo button').forEach(function(b){b.addEventListener('click',function(){aCat=b.dataset.t;renderAjustes()})});
+$('aCatAdd').addEventListener('click',function(){
+  var n=$('aCatNom').value.trim();if(!n)return;
+  if(catsDe(aCat).indexOf(n)>=0){toast('Esa categoría ya existe');return}
+  D.cats[aCat].push(n);$('aCatNom').value='';guardar();renderAjustes();toast('Categoría agregada ✓');
+});
+$('aIva').addEventListener('change',function(){D.iva=this.checked;guardar();toast(D.iva?'IVA activado':'IVA desactivado')});
+$('aGrande').addEventListener('change',function(){D.grande=this.checked;guardar();document.documentElement.classList.toggle('grande',D.grande)});
+$('aGuia').addEventListener('click',function(){abrirGuia()});
+function descargar(nombre,contenido,tipo){
+  var blob=new Blob([contenido],{type:tipo}),a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download=nombre;document.body.appendChild(a);a.click();a.remove();
+}
+$('aCopia').addEventListener('click',function(){
+  D.ultimaCopia=fechaCorta(hoy());guardar();
+  descargar('copia-finanzas-'+hoy()+'.json',JSON.stringify(D),'application/json');renderAjustes();toast('Copia descargada ✓');
+});
+$('aCargar').addEventListener('click',function(){$('aArchivo').click()});
+$('aArchivo').addEventListener('change',function(){
+  var f=this.files[0];if(!f)return;var rd=new FileReader();
+  rd.onload=function(){
+    try{
+      var g=JSON.parse(rd.result);if(!g||!Array.isArray(g.movs))throw 0;
+      if(confirm('Se reemplazarán los datos actuales de este teléfono por los de la copia. ¿Continuar?')){
+        var b=base();for(var k in b){if(!(k in g))g[k]=b[k]}D=g;guardar();aplicarGrande();renderTodo();toast('Copia cargada ✓')}
+    }catch(e){toast('Ese archivo no es una copia válida')}
+  };rd.readAsText(f);this.value='';
+});
+$('aCsv').addEventListener('click',function(){
+  if(!D.movs.length){toast('No hay movimientos para exportar');return}
+  var f=['Fecha;Tipo;Categoría;Nota;Monto;Estado'];
+  D.movs.slice().sort(function(a,b){return a.fecha<b.fecha?-1:1}).forEach(function(m){
+    f.push([m.fecha,m.tipo==='in'?'Entró':'Salió',m.cat,'"'+String(m.nota||'').replace(/"/g,'""')+'"',m.monto,m.tipo==='in'?(m.pend?'Por cobrar':'Cobrado'):''].join(';'));
+  });
+  descargar('movimientos-finanzas.csv','﻿'+f.join('\n'),'text/csv;charset=utf-8');
+});
+$('aBorrar').addEventListener('click',function(){
+  if(confirm('Se borrarán TODOS tus datos de este teléfono. ¿Seguro?')&&confirm('Esto no se puede deshacer. ¿Borrar de todos modos?')){
+    D=base();D.visto=true;guardar();aplicarGrande();renderTodo();toast('Datos borrados');
+  }
+});
+
+/* ---- Guía de bienvenida ---- */
+var SLIDES=[
+ ['👋','Te damos la bienvenida','Esta app te ayuda a llevar las cuentas de tu negocio, fácil y desde tu celular. Te mostramos cómo, en un minuto.'],
+ ['➕','Anota cada venta y gasto','En Inicio toca "Anotar movimiento". Elige si entró o salió plata, el monto y la categoría. Toma 5 segundos.'],
+ ['💰','Mira cuánto entró y cuánto te queda','Arriba ves lo que entró, lo que salió y lo que te queda este mes. Tus costos fijos se descuentan solos.'],
+ ['🎯','Ponte una meta del mes','En Ajustes defines una meta de ganancia o de ventas, y en Inicio ves cuánto avanzas.'],
+ ['🧮','Calcula el precio justo','En Calcular pones lo que te cuesta, tu trabajo y la ganancia que quieres. La app te sugiere el precio y su punto de equilibrio.'],
+ ['📊','Revisa tus reportes','En Reportes ves, mes a mes, en qué gastas y de dónde viene tu plata.'],
+ ['🎓','Aprende lo básico','En Aprende hay ideas simples: costos, fiado, flujo de caja e impuestos.'],
+ ['🔒','Tus datos son tuyos','Todo se guarda solo en este teléfono. Haz una copia de seguridad en Ajustes de vez en cuando.']
+];
+var gi=0;
+function pintarGuia(){
+  var s=SLIDES[gi];$('gEm').textContent=s[0];$('gTit').textContent=s[1];$('gTxt').textContent=s[2];
+  $('gPuntos').innerHTML=SLIDES.map(function(_,i){return '<i class="'+(i===gi?'on':'')+'"></i>'}).join('');
+  $('gSig').textContent=gi===SLIDES.length-1?'Empezar':'Siguiente';
+  $('gSaltar').style.display=gi===SLIDES.length-1?'none':'block';
+}
+function abrirGuia(){gi=0;pintarGuia();$('guia').classList.add('abierto')}
+function cerrarGuia(){$('guia').classList.remove('abierto');D.visto=true;guardar()}
+$('gSig').addEventListener('click',function(){if(gi>=SLIDES.length-1){cerrarGuia()}else{gi++;pintarGuia()}});
+$('gSaltar').addEventListener('click',cerrarGuia);
+
+/* ---- Instalación ---- */
+var pedido=null;
+var instalada=(window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)||window.navigator.standalone===true;
+var esIOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+var cerrado=false;try{cerrado=sessionStorage.getItem('cdi_fb_banner')==='1'}catch(e){}
+function banner(){
+  if(instalada||cerrado){$('banner').style.display='none';return}
+  $('banner').style.display='block';
+  if(pedido){$('bannerBtn').style.display='block'}
+  else if(esIOS){$('bannerBtn').style.display='none';$('bannerTxt').innerHTML='En Safari toca el botón <b>Compartir</b> (cuadrado con flecha) y elige <b>"Agregar a pantalla de inicio"</b>.'}
+  else{$('bannerBtn').style.display='none';$('bannerTxt').innerHTML='En Chrome toca los <b>tres puntitos</b> de arriba y elige <b>"Instalar aplicación"</b>.'}
+}
+function instalar(){if(!pedido)return;pedido.prompt();pedido.userChoice.then(function(){pedido=null;$('btnInstalar').style.display='none';banner()})}
+window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();pedido=e;$('btnInstalar').style.display='block';banner()});
+window.addEventListener('appinstalled',function(){instalada=true;banner()});
+$('btnInstalar').addEventListener('click',instalar);$('bannerBtn').addEventListener('click',instalar);
+$('bannerX').addEventListener('click',function(){cerrado=true;try{sessionStorage.setItem('cdi_fb_banner','1')}catch(e){}banner()});
+
+/* ---- Inicio de la app ---- */
+function aplicarGrande(){document.documentElement.classList.toggle('grande',!!D.grande)}
+function renderTodo(){renderInicio();renderReportes();renderAjustes();prepararCalc()}
+aplicarGrande();actModo();renderTodo();banner();
+if(!D.visto)setTimeout(abrirGuia,400);
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('./sw.js').catch(function(){})})}
+})();
+</script>
+</body>
+</html>

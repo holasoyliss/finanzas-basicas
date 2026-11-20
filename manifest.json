@@ -1,0 +1,17 @@
+{
+  "name": "Finanzas Básicas Emprendedoras",
+  "short_name": "Finanzas Básicas",
+  "description": "Herramienta de finanzas básicas para emprendedoras. CDI Chile: transformando vidas a través de la tecnología.",
+  "lang": "es-CL",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#5A3795",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
